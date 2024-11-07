@@ -1,2 +1,2 @@
 # Coding notes
-Just setting up
+Bent is an example of a tube following a path

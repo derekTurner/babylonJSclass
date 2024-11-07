@@ -33,9 +33,9 @@ function createPointLight(scene: Scene ){
 }
 
 function createDirectionalLight(scene: Scene ){
-  const light = new DirectionalLight("light", new Vector3(0.2, -1, 0.2),scene);
+  const light = new DirectionalLight("light", new Vector3(0.4, -1, 0.4),scene);
   light.position = new Vector3(20, 40, 20);
-  light.intensity = 0.7;
+  light.intensity = 1;
   light.diffuse = new Color3(1, 0, 0);
   light.specular = new Color3(0, 1, 0);
   return light;
@@ -57,7 +57,7 @@ function createShadows(light: DirectionalLight, sphere: Mesh ,box: Mesh){
 
   shadower.setDarkness(0.2);
   shadower.useBlurExponentialShadowMap = true;
-  shadower.blurScale = 4;
+  shadower.blurScale = 2;
   shadower.blurBoxOffset = 1;
   shadower.useKernelBlur = true;
   shadower.blurKernel = 64;
