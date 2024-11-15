@@ -1,4 +1,4 @@
-import { SceneData } from "./interfaces ";
+import { SceneData } from "./interfaces";
 
 import {
   Scene,
@@ -14,34 +14,36 @@ import {
   AbstractMesh,
   ISceneLoaderAsyncResult,
   Sound,
-  AnimationPropertiesOverride
 } from "@babylonjs/core";
 
-function backgroundMusic(scene: Scene): Sound{
-  let music = new Sound("music", "./assets/audio/arcade-kid.mp3", scene,  null ,
-   {
-      loop: true,
-      autoplay: true
+function backgroundMusic(scene: Scene): Sound {
+  let music = new Sound("music", "./assets/audio/arcade-kid.mp3", scene, null, {
+    loop: true,
+    autoplay: true,
   });
 
   Engine.audioEngine!.useCustomUnlockedButton = true;
 
   // Unlock audio on first user interaction.
-  window.addEventListener('click', () => {
-    if(!Engine.audioEngine!.unlocked){
+  window.addEventListener(
+    "click",
+    () => {
+      if (!Engine.audioEngine!.unlocked) {
         Engine.audioEngine!.unlock();
-    }
-}, { once: true });
+      }
+    },
+    { once: true }
+  );
   return music;
 }
 
 function createGround(scene: Scene) {
   const groundMaterial = new StandardMaterial("groundMaterial");
   const groundTexture = new Texture("./assets/textures/wood.jpg");
-  groundTexture.uScale  = 4.0; //Repeat 5 times on the Vertical Axes
-  groundTexture.vScale  = 4.0; //Repeat 5 times on the Horizontal Axes
+  groundTexture.uScale = 4.0; //Repeat 5 times on the Vertical Axes
+  groundTexture.vScale = 4.0; //Repeat 5 times on the Horizontal Axes
   groundMaterial.diffuseTexture = groundTexture;
- // groundMaterial.diffuseTexture = new Texture("./assets/textures/wood.jpg");
+  // groundMaterial.diffuseTexture = new Texture("./assets/textures/wood.jpg");
   groundMaterial.diffuseTexture.hasAlpha = true;
 
   groundMaterial.backFaceCulling = false;
@@ -54,8 +56,6 @@ function createGround(scene: Scene) {
   ground.material = groundMaterial;
   return ground;
 }
-
-
 
 function createHemisphericLight(scene: Scene) {
   const light = new HemisphericLight(
@@ -93,8 +93,6 @@ function createArcRotateCamera(scene: Scene) {
   camera.attachControl(true);
   return camera;
 }
-
-
 
 function importMeshA(scene: Scene, x: number, y: number) {
   let item: Promise<void | ISceneLoaderAsyncResult> =

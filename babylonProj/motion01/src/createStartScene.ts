@@ -84,7 +84,7 @@ function createArcRotateCamera(scene: Scene) {
   camera.lowerBetaLimit = 0;
   camera.upperBetaLimit = Math.PI / 2.02;
 
-  camera.attachControl(true);
+//  camera.attachControl(true);
   return camera;
 }
 

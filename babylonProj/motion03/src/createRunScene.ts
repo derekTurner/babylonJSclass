@@ -3,11 +3,9 @@ import {
   ActionManager,
   CubeTexture,
   Mesh,
-  Scene,
-  Skeleton,
-  _ENVTextureLoader,
+  Skeleton
 } from "@babylonjs/core";
-import { SceneData } from "./interfaces ";
+import { SceneData } from "./interfaces";
 import {
   keyActionManager,
   keyDownMap,
@@ -17,8 +15,6 @@ import {
 import { characterActionManager } from "./characterActionManager";
 import { bakedAnimations, walk, run, left, right, idle, stopAnimation, getAnimating, toggleAnimating } from "./bakedAnimations";
 
-import "@babylonjs/core/Materials/Textures/Loaders/envTextureLoader";
-import "@babylonjs/core/Helpers/sceneHelpers";
 export default function createRunScene(runScene: SceneData) {
   runScene.scene.actionManager = new ActionManager(runScene.scene);
   keyActionManager(runScene.scene);
